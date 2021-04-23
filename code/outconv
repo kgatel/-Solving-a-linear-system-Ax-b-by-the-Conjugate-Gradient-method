@@ -1,0 +1,42 @@
+ Nombre en écriture binaire : 1100000000000000101010101010101010101010101010101010101010101010
+ 
+ bit de signe : 1                                                               
+ bits d''exposants : 10000000000                                                     
+ bits de mantisses : 0000101010101010101010101010101010101010101010101010            
+ 
+ Le nombre est négatif car le bit de signe est à 1 ; dénormalisé car les bits d'exposants sont tous égaux à 0
+ 
+ exposant biaisé = 
+ 2^(          10 ) + 
+ =         1024
+ 
+ exposant réel =         1024 -d =         1024 -1023 =            1
+ 
+ mantisse = 
+ 2^(-           5 ) + 
+ 2^(-           7 ) + 
+ 2^(-           9 ) + 
+ 2^(-          11 ) + 
+ 2^(-          13 ) + 
+ 2^(-          15 ) + 
+ 2^(-          17 ) + 
+ 2^(-          19 ) + 
+ 2^(-          21 ) + 
+ 2^(-          23 ) + 
+ 2^(-          25 ) + 
+ 2^(-          27 ) + 
+ 2^(-          29 ) + 
+ 2^(-          31 ) + 
+ 2^(-          33 ) + 
+ 2^(-          35 ) + 
+ 2^(-          37 ) + 
+ 2^(-          39 ) + 
+ 2^(-          41 ) + 
+ 2^(-          43 ) + 
+ 2^(-          45 ) + 
+ 2^(-          47 ) + 
+ 2^(-          49 ) + 
+ 2^(-          51 ) + 
+  =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+ Valeur décimale exacte : ((-1)^           1 )*(A)*(2^(           1 )) = B (à calculer avec wolfram alpha par exemple)
