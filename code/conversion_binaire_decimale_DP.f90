@@ -43,10 +43,10 @@ program conversion
 	enddo
 	write(*,*) "bits de mantisses : ",c1
 	print*, ('')
-	denormalise=.false.
+	denormalise=.true.
 	do i=1,11
 		if (exposant(i)/=0) then
-			denormalise= .true.
+			denormalise= .false.
 		endif
 	enddo
 	
@@ -54,13 +54,13 @@ program conversion
 		if (denormalise) then
 			print*, 'Le nombre est positif car le bit de signe est à 0 ; dénormalisé car les bits d''exposants sont tous égaux à 0'
 		else
-			print*, 'Le nombre est positif car le bit de signe est à 0 ; normalisé car les bits d''exposants sont différents de : 000...'
+			print*, 'Le nombre est positif car le bit de signe est à 0 ; normalisé car les bits d''exposants sont différents de : 000..0'
 		endif
 	else
 		if (denormalise) then
 			print*, 'Le nombre est négatif car le bit de signe est à 1 ; dénormalisé car les bits d''exposants sont tous égaux à 0'
 		else
-			print*, 'Le nombre est négatif car le bit de signe est à 1 ; normalisé car les bits d''exposants sont différents de : 000...'
+			print*, 'Le nombre est négatif car le bit de signe est à 1 ; normalisé car les bits d''exposants sont différents de : 000..0'
 		endif
 	endif
 	
@@ -70,27 +70,30 @@ program conversion
 	print*, 'exposant biaisé = '
 	do i=1,11
 		if (exposant(i)==1) then
-			print*, '2^(',11-i,') + '
+			write (*,'(A,I2,A)',advance='no') '2^(',11-i,')+'		
 			exposantdec=exposantdec+2**(11-i)
 		endif
 	enddo
 	
-	print*, '= ',exposantdec
+	write (*,'(A,I4)',advance='no') '0 = ',exposantdec
 	print*, ''
-	print*, 'exposant réel = ',exposantdec,'-d = ',exposantdec,'-1023 = ',(exposantdec-1023)
+	print*, ''
+	
+	write (*,'(A,I4,A,I4,A,I4)',advance='no') 'exposant réel = ',exposantdec,'-d = ',exposantdec,'-1023 = ',(exposantdec-1023)
 	exposantdec=exposantdec-1023
+	print*, ''
 	print*, ''
 	mantissedec=0.d0
 	print*, 'mantisse = '
 	do i=1,52
 		if (mantisse(i)==1) then
-			print*, '2^(-',i,') + '
+			write (*,'(A,I2,A)',advance='no') '2^(-',i,') + '
 		endif
 	enddo
 	
-	print*,' =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)'
+	print*,'0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)'
 	print*, ''
-	print*, 'Valeur décimale exacte : ((-1)^',signe,')*(A)*(2^(',exposantdec,')) = B (à calculer avec wolfram alpha par exemple)'
+	write (*,'(A,I1,A,I4,A)',advance='no') 'Valeur décimale exacte : ((-1)^',signe,')*(A)*(2^(',exposantdec,')) = B (wolfram alpha)'
 	
 end program conversion
 	
