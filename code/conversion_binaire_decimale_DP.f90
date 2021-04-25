@@ -93,7 +93,7 @@ program conversion
 	
 	print*,'0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)'
 	print*, ''
-	write (*,'(A,I1,A,I4,A)',advance='no') 'Valeur décimale exacte : ((-1)^',signe,')*(A)*(2^(',exposantdec,')) = B (wolfram alpha)'
+	write (*,'(A,I1,A,I4,A)',advance='no') 'Valeur décimale exacte : ((-1)^',signe,')*(1+A)*(2^(',exposantdec,')) = B (wolfram alpha)'
 	
 end program conversion
 	
