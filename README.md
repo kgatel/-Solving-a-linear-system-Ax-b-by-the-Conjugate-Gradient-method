@@ -23,8 +23,8 @@
 
 
 # Contenu des fichiers de résultats :
-  - 0_prdt_sc_r_0_-10_bin_m2.txt contient le vecteur r et son produit scalaire en binaire à l'étape 0 avec une tolérance 10^-10, calculs effectués sur la machine M2
-  - 0_prdt_sc_r_0_-10_dec_m2 contient la valeur décimale de r et son produit scalaire à l'étape 0 avec une tolérance 10^-10, calculs effectués sur la machine M2
+  - 0_prdt_sc_r_0_-10_bin_m2.txt contient le vecteur résidu à l'étape 0 et son produit scalaire en binaire avec une tolérance 10^-10, calculs effectués sur la machine M2
+  - 0_prdt_sc_r_0_-10_dec_m2 contient la valeur décimale du vecteur résidu à l'étape 0 et son produit scalaire avec une tolérance 10^-10, calculs effectués sur la machine M2
   
 
 # Tests d'arrêt :
