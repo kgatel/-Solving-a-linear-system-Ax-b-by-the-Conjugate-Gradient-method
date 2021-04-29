@@ -25,7 +25,7 @@
 # Contenu des fichiers de résultats :
   - 0_prdt_sc_r_0_-10_bin_m2.txt contient le vecteur résidu à l'étape 0 et son produit scalaire en binaire avec une tolérance 10^-10, calculs effectués sur la machine M2
   - 0_prdt_sc_r_0_-10_dec_m2 contient la valeur décimale du vecteur résidu à l'étape 0 et son produit scalaire avec une tolérance 10^-10, calculs effectués sur la machine M2 
-  
+  - 0_prdt_sc_r_0_-10_err_m1 contient l'analyse de l'erreur de la norme deux du vecteur résidu à l'étape 0 avec une tolérance de 10^-10, calcul effectué sur la machine m1 
 
 # Tests d'arrêt :
   -  
@@ -38,3 +38,9 @@
 # Commande sur le shell script grace au Makefile
   - make conv_exe --> compile le programme conversion_binaire
   - make out --> dirige le fichier de donnée "dconv" dans l'exécutable "conv" en écrivant la sortie dans le fichier "outconv"
+
+# Logiciels extérieur utilisés :
+ - Wolfram 
+
+# Logiciel extérieur utilisé pour les calculs :
+ - Wolfram Alpha (https://www.wolframalpha.com)
