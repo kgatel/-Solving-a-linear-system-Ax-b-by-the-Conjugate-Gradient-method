@@ -46,7 +46,8 @@ program gradient
                 p=r+beta*p
                 rn(i+1,:)=r
                 write (*,*) i, x
-                i=i+1
+                r2=dot_product(r,r)
+                i=i+1      
         end do
         print*,'suite de vecteurs r :'
         do j=0,i

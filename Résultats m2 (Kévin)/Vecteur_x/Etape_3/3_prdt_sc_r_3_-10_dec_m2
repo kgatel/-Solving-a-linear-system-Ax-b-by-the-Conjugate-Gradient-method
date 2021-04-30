@@ -1,0 +1,102 @@
+R(1):
+0011111001110001000111011011101000000100011000101110100000000000
+ 
+ bit de signe : 0                                                               
+ bits d''exposants : 01111100111                                                     
+ bits de mantisses : 0001000111011011101000000100011000101110100000000000            
+ 
+ Le nombre est positif car le bit de signe est à 0 ; normalisé car les bits d'exposants sont différents de : 000..0
+ 
+ exposant biaisé = 
+2^( 9)+2^( 8)+2^( 7)+2^( 6)+2^( 5)+2^( 2)+2^( 1)+2^( 0)+0 =  999 
+ 
+exposant réel =  999-d =  999-1023 =  -24 
+ 
+ mantisse = 
+2^(- 4) + 2^(- 8) + 2^(- 9) + 2^(-10) + 2^(-12) + 2^(-13) + 2^(-15) + 2^(-16) + 2^(-17) + 2^(-19) + 2^(-26) + 2^(-30) + 2^(-31) + 2^(-35) + 2^(-37) + 2^(-38) + 2^(-39) + 2^(-41) +  0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+Valeur décimale exacte : ((-1)^0)*(1+A)*(2^( -24)) = B (wolfram alpha)
+
+
+
+R(2):
+1011111010100111111010010101011111000101010100101111010000000000
+ 
+ bit de signe : 1                                                               
+ bits d''exposants : 01111101010                                                     
+ bits de mantisses : 0111111010010101011111000101010100101111010000000000            
+ 
+ Le nombre est négatif car le bit de signe est à 1 ; normalisé car les bits d'exposants sont différents de : 000..0
+ 
+ exposant biaisé = 
+2^( 9)+2^( 8)+2^( 7)+2^( 6)+2^( 5)+2^( 3)+2^( 1)+0 = 1002 
+ 
+exposant réel = 1002-d = 1002-1023 =  -21 
+ 
+ mantisse = 
+2^(- 2) + 2^(- 3) + 2^(- 4) + 2^(- 5) + 2^(- 6) + 2^(- 7) + 2^(- 9) + 2^(-12) + 2^(-14) + 2^(-16) + 2^(-18) + 2^(-19) + 2^(-20) + 2^(-21) + 2^(-22) + 2^(-26) + 2^(-28) + 2^(-30) + 2^(-32) + 2^(-35) + 2^(-37) + 2^(-38) + 2^(-39) + 2^(-40) + 2^(-42) +  0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+Valeur décimale exacte : ((-1)^1)*(1+A)*(2^( -21)) = B (wolfram alpha)
+
+
+
+R(3)
+0011111010111100101010101010101011010011010011101101010010000000
+ 
+ bit de signe : 0                                                               
+ bits d''exposants : 01111101011                                                     
+ bits de mantisses : 1100101010101010101011010011010011101101010010000000            
+ 
+ Le nombre est positif car le bit de signe est à 0 ; normalisé car les bits d'exposants sont différents de : 000..0
+ 
+ exposant biaisé = 
+2^( 9)+2^( 8)+2^( 7)+2^( 6)+2^( 5)+2^( 3)+2^( 1)+2^( 0)+0 = 1003 
+ 
+exposant réel = 1003-d = 1003-1023 =  -20 
+ 
+ mantisse = 
+2^(- 1) + 2^(- 2) + 2^(- 5) + 2^(- 7) + 2^(- 9) + 2^(-11) + 2^(-13) + 2^(-15) + 2^(-17) + 2^(-19) + 2^(-21) + 2^(-22) + 2^(-24) + 2^(-27) + 2^(-28) + 2^(-30) + 2^(-33) + 2^(-34) + 2^(-35) + 2^(-37) + 2^(-38) + 2^(-40) + 2^(-42) + 2^(-45) +  0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+Valeur décimale exacte : ((-1)^0)*(1+A)*(2^( -20)) = B (wolfram alpha)
+
+
+
+R(4)
+1011111010110010100101101100100000001101000101001010001000000000
+ 
+ bit de signe : 1                                                               
+ bits d''exposants : 01111101011                                                     
+ bits de mantisses : 0010100101101100100000001101000101001010001000000000            
+ 
+ Le nombre est négatif car le bit de signe est à 1 ; normalisé car les bits d'exposants sont différents de : 000..0
+ 
+ exposant biaisé = 
+2^( 9)+2^( 8)+2^( 7)+2^( 6)+2^( 5)+2^( 3)+2^( 1)+2^( 0)+0 = 1003 
+ 
+exposant réel = 1003-d = 1003-1023 =  -20 
+ 
+ mantisse = 
+2^(- 3) + 2^(- 5) + 2^(- 8) + 2^(-10) + 2^(-11) + 2^(-13) + 2^(-14) + 2^(-17) + 2^(-25) + 2^(-26) + 2^(-28) + 2^(-32) + 2^(-34) + 2^(-37) + 2^(-39) + 2^(-43) +  0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+Valeur décimale exacte : ((-1)^1)*(1+A)*(2^( -20)) = B (wolfram alpha)
+
+
+
+R2
+0011110110010100011111011010011010101000101100101111010101011110
+ 
+ bit de signe : 0                                                               
+ bits d''exposants : 01111011001                                                     
+ bits de mantisses : 0100011111011010011010101000101100101111010101011110            
+ 
+ Le nombre est positif car le bit de signe est à 0 ; normalisé car les bits d'exposants sont différents de : 000..0
+ 
+ exposant biaisé = 
+2^( 9)+2^( 8)+2^( 7)+2^( 6)+2^( 4)+2^( 3)+2^( 0)+0 =  985 
+ 
+exposant réel =  985-d =  985-1023 =  -38 
+ 
+ mantisse = 
+2^(- 2) + 2^(- 6) + 2^(- 7) + 2^(- 8) + 2^(- 9) + 2^(-10) + 2^(-12) + 2^(-13) + 2^(-15) + 2^(-18) + 2^(-19) + 2^(-21) + 2^(-23) + 2^(-25) + 2^(-29) + 2^(-31) + 2^(-32) + 2^(-35) + 2^(-37) + 2^(-38) + 2^(-39) + 2^(-40) + 2^(-42) + 2^(-44) + 2^(-46) + 2^(-48) + 2^(-49) + 2^(-50) + 2^(-51) +  0 =  A (à calculer sur https://www.dcode.fr/calcul-sommation par exemple)
+ 
+Valeur décimale exacte : ((-1)^0)*(1+A)*(2^( -38)) = B (wolfram alpha)
