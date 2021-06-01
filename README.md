@@ -34,12 +34,12 @@ Copyright (C) 2020 Free Software Foundation, Inc.
   - Le calcul du carré des composantes du vecteur r se fait sur wolframalpha.com avec 20 chiffres significatifs
   - Le calcul de z (somme des carrés des composantes de r) se fait sur wolframalpha.com avec 20 chiffres significatifs
   - Le calcul de l'erreur absolue se fait sur wolframalpha.com
-  - Le calcul de l'erreur absolue se fait sur wolframalpha.com avec 20 chiffres significatifs
+  - Le calcul de l'erreur relative se fait sur wolframalpha.com avec 20 chiffres significatifs
   
   - Capture d'écran du calcul du carré de r_0(1) sur wolframalpha.com : ./CaptureDEcran/Exemple_err_r_0(1)^2
   - Capture d'écran de calcul de z pour r_0 sur wolframalpha.com : ./CaptureDEcran/Exemple_err_z
   - Capture d'écran de calcul de l'erreur absolue pour r_0 sur wolframalpha.com : ./CaptureDEcran/Exemple_err_abs
-  - Capture d'écran de calcul de l'erreur absolue pour r_0 sur wolframalpha.com : ./CaptureDEcran/Exemple_err_rel
+  - Capture d'écran de calcul de l'erreur relative pour r_0 sur wolframalpha.com : ./CaptureDEcran/Exemple_err_rel
 
 
 # Contenu des fichiers de résultats :
