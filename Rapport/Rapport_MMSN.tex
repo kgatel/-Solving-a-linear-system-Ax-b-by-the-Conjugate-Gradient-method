@@ -115,7 +115,7 @@ Le nombre d'étape pour trouver la solution sera en théorie inférieur ou égal
 En notant $K_2(A)$ le conditionnement 2 de A tel que :\footnote{conditionnement obtenu sur Matlab}
 $$K_2(a)= 1.5514*10^4$$
 
-On a l'inégalité du conditionnement :
+On a l'inégalité du conditionnement pour majorer l'erreur :
 $$\frac{||\Delta x||_{2}}{||x||_2}\leq K_2(A)\frac{||\Delta b||_{2}}{||b||_2}$$
 
 Le test d'arrêt est de la forme $$tol^2*(b,b) > (r,r) $$
@@ -155,6 +155,32 @@ $$x^T=\left(\begin{array}{cccc}
 \section{Etape 4}
 
 \chapter{Analyse numérique du problème} %kev
+
+Analysons maintenant le problème numériquement. On sait que la solution théorique est
+$$x^T=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)$$
+
+Comparons maintenant ce résultat avec celui qu'on a obtenu numériquement au bout de la $4^{eme}$ étape :
+$$\hat{x}^T=\left(\begin{array}{cccc}
+0.9999999987685677105 & 0.9999999992953791939 & 0.9999999994982825546 & 0.99999999960549057491\end{array}\right)$$\vspace{0cm}
+
+On peut maintenant obtenir l'erreur absolue pour chaque composante afin d'obtenir le vecteur absolu :\footnote{calcul effectué sur \textit{wolframalpha.com}}
+
+$$\varepsilon_{abs}=\left(\begin{array}{cccc}
+1.2314322895*10^{-9} & 7.046208061*10^{-10} & 5.017174454*10^{-10} & 3.9450942509*10^{-10} \end{array}\right)$$\vspace{0cm}
+
+On remarque que l'on obtient le même vecteur pour le vecteur erreur relative puisqu'on divise toutes les composantes par 1 :
+
+$$\varepsilon_{rel}=\left(\begin{array}{cccc}
+1.2314322895*10^{-9} & 7.046208061*10^{-10} & 5.017174454*10^{-10} & 3.9450942509*10^{-10} \end{array}\right)$$
+
+On observe des erreurs beaucoup plus élevées que celles obtenues localement. En effet pour une étude local on obtenait des erreurs d'ordre de grandeur d'environ $10^{-17}$ alors qu'ici il est d'environ $10^{-10}$. Une différence de $10^{7}$ qui n'est pas négligeable.\\
+
+Cependant, on peut souligner l'efficacité de la méthode car en seulement 4 itérations l'erreur de la solution obtenue par rapport à celle théorique est de seulement $10^{-9}$. Si l'on veut obtenir plus de précision il suffit de diminuer la tolérance et d'observer davantage d'étapes. %Avec une vitesse de convergence v telle que : ... En peu d'étapes supérieures nous pouvons obtenir une meilleure précision.
+
+
+
+
 
 \chapter*{Conclusion} %thib
 \addcontentsline{toc}{chapter}{Conclusion}
