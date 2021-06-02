@@ -100,11 +100,34 @@ numbers=left}
 
 \chapter{Présentation du problème} %kev
 
-Choix de la méthode utilisée (gradient conjugué)\\
---> tolérance choisie
+L'objectif est donc d'étudier les erreurs que fait la machine en utilisant l'arithmétique flottante plutôt que l'ensemble théorique des réels.\\
 
-Choix de la matrice étudiée + conditionnement \\
-Choix du vecteur b (de manière à avoir que des 1)
+ Ces erreurs seront étudiées sur la solution du problème linéaire $Ax=b$ avec la méthode du gradient conjugué. En choisissant la matrice $A$ de dimension 4 définie comme ci-dessous :\\
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.2\textwidth]{./Images/H_4}
+	\caption{Matrice de Hilbert de dimension 4}
+\end{figure}
+
+Le nombre d'étape pour trouver la solution sera en théorie inférieur ou égale à 4 (assuré par la méthode du gradient conjugué).\\
+
+En notant $K_2(A)$ le conditionnement 2 de A tel que :\footnote{conditionnement obtenu sur Matlab}
+$$K_2(a)= 1.5514*10^4$$
+
+On a l'inégalité du conditionnement :
+$$\frac{||\Delta x||_{2}}{||x||_2}\leq K_2(A)\frac{||\Delta b||_{2}}{||b||_2}$$
+
+Le test d'arrêt est de la forme $$tol^2*(b,b) > (r,r) $$
+avec $(\bullet,\bullet)$ le produit scalaire usuel et $tol=10^{-10}$.\\
+
+Enfin, le vecteur $b$ est choisi comme ci-dessous :
+
+$$b_i=\sum_{k=1}^4a_{ik}$$
+
+de manière à avoir 
+$$x^T=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)$$
 
 
 
