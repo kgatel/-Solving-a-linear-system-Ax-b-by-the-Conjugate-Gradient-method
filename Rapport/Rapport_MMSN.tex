@@ -159,7 +159,7 @@ Comme on peut le voir ci-dessus, nous avons utilisé le logiciel gdb avec notre 
 \end{figure}
 
 Deuxième étape, on retrouve la valeur réel en base 10 de notre nombre à partir de son écriture binaire en flottant.\\
-On décompose le nombre par bits de signes, exposants et mantisses. On recalcule chacun des termes puis la valeur réelle finale grâce au logiciel en ligne wolframalpha. \\
+On décompose le nombre par bits de signes, exposants et mantisses. On recalcule chacun des termes puis la valeur réelle finale grâce au logiciel en ligne wolframalpha. \\
 Maintenant que nous avons la valeur réelle de chaque composante nous allons pouvoir en déduire une valeur calculée par nous même de r2 et la comparé avec celle donnée par l'ordinateur.\\
 C'est ce que nous allons maintenant voir à chaque étape de l'itération du gradient conjugué et observé l'erreur absolue et relative entre la solution de l'ordinateur et la notre.
 
@@ -221,13 +221,128 @@ A ce propos elle est plutôt très faible et on peut être satisfait du résulta
 
 \chapter{Vecteur solution $x$} %kev
 
+Intéressons nous maintenant au vecteur solution $x$. On rappelle que la solution théorique attendue est le vecteur :
+$$x^T=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)$$
+
+Dans cette partie nous allons étudié les erreurs locales sur le vecteur solution $\hat{x}$ obtenu avec la méthode du gradient conjugué :
+$$\hat{x}_{n+1}=\hat{x}_{n}-\alpha*p_n$$
+
+avec
+$$\alpha=\frac{(r_n,r_n)}{(Ap_n,p_n)}$$
+
+On se propose d'étudier chaque composante du vecteur sur 4 étapes.
+
 \section{Etape 1}
+
+Pour chaque étape, on récupère les données en binaire grâce à \textit{gdb} puis on les stock dans des fichiers comme ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/gdb_x_0}
+	\caption{Composantes de x à l'étape 0}
+\end{figure}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/gdb_alpha_0}
+	\caption{Valeur de $\alpha$ à l'étape 0}
+\end{figure}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/gdb_p_0}
+	\caption{Composantes de p à l'étape 0}
+\end{figure}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/gdb_x_1}
+	\caption{Composantes de x à l'étape 1}
+\end{figure}
+
+Une fois les valeurs binaires obtenues, on peut alors calculer leur valeur. Soit par l'ordinateur qui est en double précision donc qui aura des erreurs de l'ordre de $10^{-16}$, soit par un plus grand calculateur\footnote{\textit{wolframalpha.com}}, c'est ce qu'on se propose de faire.\\
+
+On stock également ces résultats dans des fichiers de manière à les comparer plus tard comme dans l'exemple ci-dessous :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/x_1(4)}
+	\caption{Calcul précis de la $4^{eme}$ composante de x à l'étape 1}
+\end{figure}
+
+Une fois le calcul précis de toutes les composantes de nos variables, on pourra alors comparer nos valeurs en local de manière à obtenir nos erreurs absolues et relatives. On obtient un fichier du type :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/err_x_1}
+	\caption{Fichier erreur final obtenu pour l'étape 1}
+\end{figure}
+
+On s'intéresse seulement à ces deux lignes pour conclure :
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.5\textwidth]{./Images/err_abs_x_1}
+	\caption{Vecteur erreur absolue pour l'étape 1}
+\end{figure}
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/err_rel_x_1}
+	\caption{Vecteur erreur relative pour l'étape 1}
+\end{figure}
+
+On remarque que l'erreur relative pour toutes les composantes de $\hat{x}$ est inférieure à l'erreur machine $10^{-16}$ ce qui est plutôt bien, les calculs se sont bien passés informatiquement.
 
 \section{Etape 2}
 
+De même pour l'étape 2, on obtient les valeurs des différentes variables en binaire, nous calculons leur valeur exacte grâce à un calculateur\footnote{sur \textit{wolframalpha.com}} très performant afin d'avoir une très grande précision puis on compare le résultat final $Z$ que donne le programme avec celui calculé sur le calculateur $z$. On obtient ces résultats :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.5\textwidth]{./Images/err_abs_x_2}
+	\caption{Vecteur erreur absolue pour l'étape 2}
+\end{figure}
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/err_rel_x_2}
+	\caption{Vecteur erreur relative pour l'étape 2}
+\end{figure}
+
+Les erreurs sont de l'ordre de $10^{-18}$ bien inférieur à la précision machine $10^{-16}$. Les calculs se sont également bien passés.
+
 \section{Etape 3}
 
+Même chose pour l'étape 3, on obtient :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.5\textwidth]{./Images/err_abs_x_3}
+	\caption{Vecteur erreur absolue pour l'étape 3}
+\end{figure}
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/err_rel_x_3}
+	\caption{Vecteur erreur relative pour l'étape 3}
+\end{figure}
+
+Les erreurs sont cette fois-ci de l'ordre de $10^{-17}$, toujours inférieur à $10^{-16}$ ce qui indique que les calculs se sont bien passés.
+
 \section{Etape 4}
+
+Même démarche pour cette dernière étape, on obtient :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.5\textwidth]{./Images/err_abs_x_4}
+	\caption{Vecteur erreur absolue pour l'étape 4}
+\end{figure}
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/err_rel_x_4}
+	\caption{Vecteur erreur relative pour l'étape 4}
+\end{figure}
+
+Les erreurs sont de l'ordre de $10^{-17}$ une nouvelle fois, on conclut alors que l'ensemble des calculs pour les 4 étapes se sont bien déroulés informatiquement.
 
 \chapter{Analyse numérique du problème} %kev
 
