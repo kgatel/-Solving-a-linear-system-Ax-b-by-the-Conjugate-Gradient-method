@@ -139,15 +139,85 @@ $$x^T=\left(\begin{array}{cccc}
 
 \chapter{Vecteur résidu $r$} %thib
 
+\section{Préambule}
+
+Premier élément d'intérêt de notre projet, le vecteur résidu. Intéressons nous aux erreurs faites par la machine sur ce vecteur. Nous ne reviendrons pas sur le rôle du vecteur résidu dans la méthode du gradient conjugué mais il est essentiel au bon fonctionnement de celle-ci.\\
+Maintenant nous allons expliquer la démarche utilisée pour étudier cette erreur.
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/Exemple_gdb}
+	\caption{Capture d'écran avec le logiciel gdb}
+\end{figure}
+
+Comme on peut le voir ci-dessus, nous avons utilisé le logiciel gdb avec notre programme de gradient conjugué. On utilise le logiciel gdb pour obtenir certaines valeurs pendant le déroulement du programme et pas uniquement à la fin. En ce qui nous concerne nous récupérons les valeurs des composantes du vecteur résidu ainsi que leurs valeurs binaires qui seront importantes pour la suite. la composante r2 est la norme 2 au carré du vecteur résidu et c'est précisément ce que nous allons comparer avec notre calcul pour trouver l'erreur.\\
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=1\textwidth]{./Images/r_0_dec}
+	\caption{Conversion binaire réel}
+\end{figure}
+
+Deuxième étape, on retrouve la valeur réel en base 10 de notre nombre à partir de son écriture binaire en flottant.\\
+On décompose le nombre par bits de signes, exposants et mantisses. On recalcule chacun des termes puis la valeur réelle finale grâce au logiciel en ligne wolframalpha. \\
+Maintenant que nous avons la valeur réelle de chaque composante nous allons pouvoir en déduire une valeur calculée par nous même de r2 et la comparé avec celle donnée par l'ordinateur.\\
+C'est ce que nous allons maintenant voir à chaque étape de l'itération du gradient conjugué et observé l'erreur absolue et relative entre la solution de l'ordinateur et la notre.
+
+
 \section{Etape 0}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/r_0_err}
+	\caption{Fichier d'erreur à l'étape 0}
+\end{figure}
+
+On peut voir que l'erreur absolue est de $10^{-16}$ et l'erreur relative de $10^{-17}$. On est autour de la précision machine pour un double précision et l'erreur relative reste extrêmement faible. On peut être plutôt satisfait du résultat.
 
 \section{Etape 1}
 
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/r_1_err}
+	\caption{Fichier d'erreur à l'étape 1}
+\end{figure}
+
+Cette fois l'erreur absolue est de $10^{-19}$ et la relative de $10^{-17}$ c'est même moins que l'étape d'avant.
+
 \section{Etape 2}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/r_2_err}
+	\caption{Fichier d'erreur à l'étape 2}
+\end{figure}
+
+Une fois de plus l'erreur absolue diminue elle est de $10^-{-23}$ cependant quand on regarde l'erreur relative en $10^{-17}$ on se rend compte qu'elle na pas diminué.
 
 \section{Etape 3}
 
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/r_3_err}
+	\caption{Fichier d'erreur à l'étape 3}
+\end{figure}
+
+Encore on a une baisse de l'erreur absolue $10^{-28}$ mais l'erreur relative a tendance à remonter légèrement mais elle reste très faible.
+
 \section{Etape 4}
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.9\textwidth]{./Images/r_4_err}
+	\caption{Fichier d'erreur à l'étape 4}
+\end{figure}
+
+Encore une fois on a l'erreur absolue $10^{-32}$ qui diminue mais l'erreur relative reste aux alentours de $10^{-17}$ comme depuis le début.
+
+\section{postambule}
+
+On a pu voir que l'erreur absolue avait tendance à diminuer et l'erreur relative à stagner autour de $10^{-17}$. Il est en fait logique que l'erreur absolue diminue car le vecteur résidu diminue à chaque itération du programme normalement. C'est pourquoi il est souvent plus judicieux de regarder l'erreur relative qui est plus représentative.\\
+A ce propos elle est plutôt très faible et on peut être satisfait du résultat obtenue.
 
 \chapter{Vecteur solution $x$} %kev
 
