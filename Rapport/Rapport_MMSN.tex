@@ -61,7 +61,7 @@ numbers=left}
 
 	% Title
 	\HRule \\[0.5cm]
-	{ \Huge \bfseries Etude des erreurs sur la méthode du Gradient Conjugué}\\[0.2cm]
+	{ \Huge \bfseries Etude des erreurs sur la méthode du gradient conjugué}\\[0.2cm]
 	\HRule \\[0.75cm]
 
 	\includegraphics[width=0.6\textwidth]{./Images/Page_de_garde}\\[0.9 cm]
@@ -97,11 +97,11 @@ numbers=left}
 \renewcommand{\chaptername}{}
 \chapter*{Introduction} %thib
 \addcontentsline{toc}{chapter}{Introduction}
-Pour commencer, nous avons longtemps pensé que les calculatrices et les ordinateurs étaient les références absolues en termes de calcul mathématique. Qu'ils ne se trompaient jamais pourvu qu'on leur donne le bon calcul. Cependant nous avons par la suite découvert que les réels n'existaient pas en machine et qu'on utilisait les flottants pour les représenter. Nous ne détaillerons pas la construction des flottants, ce n'est pas notre sujet mais il est important de connaître leur existence. De cela nous avons compris qu'il était impossible de représenter tous les réels par les flottants. Ce qui entrainera forcément des erreurs inévitables lors des calculs. \\
+Pour commencer, nous avons longtemps pensé que les calculatrices et les ordinateurs étaient les références absolues en termes de calcul mathématique. Qu'ils ne se trompaient jamais pourvu qu'on leur donne le bon calcul. Cependant, nous avons par la suite découvert que les réels n'existaient pas en machine et qu'on utilisait les flottants pour les représenter. Nous ne détaillerons pas la construction des flottants, ce n'est pas notre sujet mais il est important de connaître leur existence. De cela nous avons compris qu'il était impossible de représenter tous les réels par les flottants. Cela entraînera forcément des erreurs inévitables lors des calculs. \\
 
-C'est là tout le sujet de notre projet, les erreurs. En effet nous allons nous intéresser aux erreurs de calculs survenus lors de la résolution d'un système linéaire sur machine. Plus particulièrement avec la méthode du gradient conjugué que nous avons déjà étudié auparavant lors d'un précédent projet. Nous allons donc à l'aide de la valeur binaire des nombres et de la connaissance de la construction des flottants pouvoir étudier et quantifier les erreurs survenues lors de la résolution du système linéaire. \\
+C'est là tout le sujet de notre projet, les erreurs. En effet, nous allons nous intéresser aux erreurs de calculs survenues lors de la résolution d'un système linéaire sur machine. Plus particulièrement avec la méthode du gradient conjugué que nous avons déjà étudié auparavant lors d'un précédent projet. Nous allons donc à l'aide de la valeur binaire des nombres et de la connaissance de la construction des flottants pouvoir étudier et quantifier les erreurs survenues lors de la résolution d'un système linéaire. \\
 
-Pour obtenir une étude plus large tous les calculs ont été réalisés sur deux machines différentes dont les caractéristiques ont été détaillés dans le fichier "README". Nous pourrons par conséquent les comparer pour remarquer des éventuelles différences d'une machine à l'autre.
+Pour obtenir une étude plus large, tous les calculs ont été réalisés sur deux machines différentes dont les caractéristiques ont été détaillées dans le fichier "README". Nous pourrons par conséquent les comparer pour remarquer des éventuelles différences d'une machine à l'autre.
 
 \chapter{Présentation du problème} %kev
 
@@ -115,7 +115,7 @@ L'objectif est donc d'étudier les erreurs que fait la machine en utilisant l'ar
 	\caption{Matrice de Hilbert de dimension 4}
 \end{figure}
 
-Le nombre d'étape pour trouver la solution sera en théorie inférieur ou égale à 4 (assuré par la méthode du gradient conjugué).\\
+Le nombre d'étape pour trouver la solution sera en théorie inférieur ou égal à 4 (assuré par la méthode du gradient conjugué).\\
 
 En notant $K_2(A)$ le conditionnement 2 de A tel que :\footnote{conditionnement obtenu sur Matlab}
 $$K_2(a)= 1.5514*10^4$$
@@ -141,27 +141,27 @@ $$x^T=\left(\begin{array}{cccc}
 
 \section{Préambule}
 
-Premier élément d'intérêt de notre projet, le vecteur résidu. Intéressons nous aux erreurs faites par la machine sur ce vecteur. Nous ne reviendrons pas sur le rôle du vecteur résidu dans la méthode du gradient conjugué mais il est essentiel au bon fonctionnement de celle-ci.\\
-Maintenant nous allons expliquer la démarche utilisée pour étudier cette erreur.
+Premier élément d'intérêt de notre projet, le vecteur résidu. Intéressons-nous aux erreurs faites par la machine sur ce vecteur. Nous ne reviendrons pas sur le rôle du vecteur résidu dans la méthode du gradient conjugué mais il est essentiel au bon fonctionnement de celle-ci.\\
+Désormais, nous allons expliquer la démarche utilisée pour étudier cette erreur.
 
 \begin{figure}[H]
 	\center
 	\includegraphics[width=1\textwidth]{./Images/Exemple_gdb}
-	\caption{Capture d'écran avec le logiciel gdb}
+	\caption{Capture d'écran avec le logiciel \textit{gdb}}
 \end{figure}
 
-Comme on peut le voir ci-dessus, nous avons utilisé le logiciel gdb avec notre programme de gradient conjugué. On utilise le logiciel gdb pour obtenir certaines valeurs pendant le déroulement du programme et pas uniquement à la fin. En ce qui nous concerne nous récupérons les valeurs des composantes du vecteur résidu ainsi que leurs valeurs binaires qui seront importantes pour la suite. la composante r2 est la norme 2 au carré du vecteur résidu et c'est précisément ce que nous allons comparer avec notre calcul pour trouver l'erreur.\\
+Comme on peut le voir ci-dessus, nous avons utilisé le logiciel \textit{gdb} avec notre programme de gradient conjugué. On utilise le logiciel \textit{gdb} pour obtenir certaines valeurs pendant le déroulement du programme et pas uniquement à la fin. En ce qui nous concerne, nous récupérons les valeurs des composantes du vecteur résidu ainsi que leurs valeurs binaires qui seront importantes pour la suite. La composante r2 est la norme 2 au carré du vecteur résidu et c'est précisément ce que nous allons comparer avec notre calcul pour trouver l'erreur.\\
 
 \begin{figure}[H]
 	\center
 	\includegraphics[width=1\textwidth]{./Images/r_0_dec}
-	\caption{Conversion binaire réel}
+	\caption{Conversion binaire réelle}
 \end{figure}
 
-Deuxième étape, on retrouve la valeur réel en base 10 de notre nombre à partir de son écriture binaire en flottant.\\
-On décompose le nombre par bits de signes, exposants et mantisses. On recalcule chacun des termes puis la valeur réelle finale grâce au logiciel en ligne wolframalpha. \\
-Maintenant que nous avons la valeur réelle de chaque composante nous allons pouvoir en déduire une valeur calculée par nous même de r2 et la comparé avec celle donnée par l'ordinateur.\\
-C'est ce que nous allons maintenant voir à chaque étape de l'itération du gradient conjugué et observé l'erreur absolue et relative entre la solution de l'ordinateur et la notre.
+Deuxième étape, on retrouve la valeur réelle en base 10 de notre nombre à partir de son écriture binaire en flottant.\\
+On décompose le nombre par bits de signes, exposants et mantisses. On recalcule chacun des termes puis la valeur réelle finale grâce au logiciel en ligne \textit{wolframalpha}. \\
+Maintenant que nous avons la valeur réelle de chaque composante nous allons pouvoir en déduire une valeur calculée par nous-même de r2 et la comparer avec celle donnée par l'ordinateur.\\
+Nous allons maintenant voir cela à chaque itération du gradient conjugué et observer l'erreur absolue et relative entre la solution de l'ordinateur et la nôtre.
 
 
 \section{Etape 0}
@@ -172,7 +172,7 @@ C'est ce que nous allons maintenant voir à chaque étape de l'itération du gra
 	\caption{Fichier d'erreur à l'étape 0}
 \end{figure}
 
-On peut voir que l'erreur absolue est de $10^{-16}$ et l'erreur relative de $10^{-17}$. On est autour de la précision machine pour un double précision et l'erreur relative reste extrêmement faible. On peut être plutôt satisfait du résultat.
+On peut voir que l'erreur absolue est de $10^{-16}$ et l'erreur relative de $10^{-17}$. On est autour de la précision machine pour une double précision et l'erreur relative reste extrêmement faible. On peut être plutôt satisfait du résultat.
 
 \section{Etape 1}
 
@@ -192,7 +192,7 @@ Cette fois l'erreur absolue est de $10^{-19}$ et la relative de $10^{-17}$ c'est
 	\caption{Fichier d'erreur à l'étape 2}
 \end{figure}
 
-Une fois de plus l'erreur absolue diminue elle est de $10^-{-23}$ cependant quand on regarde l'erreur relative en $10^{-17}$ on se rend compte qu'elle na pas diminué.
+Une fois de plus, l'erreur absolue diminue elle est de $10^{-23}$. Cependant, quand on regarde l'erreur relative en $10^{-17}$, on se rend compte qu'elle n'a pas diminué.
 
 \section{Etape 3}
 
@@ -212,20 +212,20 @@ Encore on a une baisse de l'erreur absolue $10^{-28}$ mais l'erreur relative a t
 	\caption{Fichier d'erreur à l'étape 4}
 \end{figure}
 
-Encore une fois on a l'erreur absolue $10^{-32}$ qui diminue mais l'erreur relative reste aux alentours de $10^{-17}$ comme depuis le début.
+Nous avons une nouvelle fois une baisse de l'erreur absolue à $10^{-32}$. L'erreur relative reste quant à elle aux alentours de $10^{-17}$ comme depuis le début.
 
 \section{postambule}
 
-On a pu voir que l'erreur absolue avait tendance à diminuer et l'erreur relative à stagner autour de $10^{-17}$. Il est en fait logique que l'erreur absolue diminue car le vecteur résidu diminue à chaque itération du programme normalement. C'est pourquoi il est souvent plus judicieux de regarder l'erreur relative qui est plus représentative.\\
-A ce propos elle est plutôt très faible et on peut être satisfait du résultat obtenue.
+On a pu voir que l'erreur absolue avait tendance à diminuer et l'erreur relative à stagner autour de $10^{-17}$. Il est en fait logique que l'erreur absolue diminue car le vecteur résidu diminue à chaque itération du programme. C'est pourquoi il est souvent plus judicieux de regarder l'erreur relative qui est plus représentative.\\
+A ce propos, elle est plutôt très faible et on peut être satisfait du résultat obtenu.
 
 \chapter{Vecteur solution $x$} %kev
 
-Intéressons nous maintenant au vecteur solution $x$. On rappelle que la solution théorique attendue est le vecteur :
+Intéressons-nous maintenant au vecteur solution $x$. On rappelle que la solution théorique attendue est le vecteur :
 $$x^T=\left(\begin{array}{cccc}
 1 & 1 & 1 & 1\end{array}\right)$$
 
-Dans cette partie nous allons étudié les erreurs locales sur le vecteur solution $\hat{x}$ obtenu avec la méthode du gradient conjugué :
+Dans cette partie nous allons étudier les erreurs locales sur le vecteur solution $\hat{x}$ obtenu avec la méthode du gradient conjugué :
 $$\hat{x}_{n+1}=\hat{x}_{n}-\alpha*p_n$$
 
 avec
@@ -235,7 +235,7 @@ On se propose d'étudier chaque composante du vecteur sur 4 étapes.
 
 \section{Etape 1}
 
-Pour chaque étape, on récupère les données en binaire grâce à \textit{gdb} puis on les stock dans des fichiers comme ci-dessous :
+Pour chaque étape, on récupère les données en binaire grâce à \textit{gdb} puis on les stocke dans des fichiers comme ci-dessous :
 
 \begin{figure}[H]
 	\center
@@ -261,9 +261,9 @@ Pour chaque étape, on récupère les données en binaire grâce à \textit{gdb}
 	\caption{Composantes de x à l'étape 1}
 \end{figure}
 
-Une fois les valeurs binaires obtenues, on peut alors calculer leur valeur. Soit par l'ordinateur qui est en double précision donc qui aura des erreurs de l'ordre de $10^{-16}$, soit par un plus grand calculateur\footnote{\textit{wolframalpha.com}}, c'est ce qu'on se propose de faire.\\
+Une fois les valeurs binaires obtenues, on peut alors calculer leur valeur. Soit par l'ordinateur, qui est en double précision donc qui aura des erreurs de l'ordre de $10^{-16}$, soit par un plus grand calculateur\footnote{\textit{wolframalpha.com}}, c'est ce qu'on se propose de faire.\\
 
-On stock également ces résultats dans des fichiers de manière à les comparer plus tard comme dans l'exemple ci-dessous :
+On stocke également ces résultats dans des fichiers de manière à les comparer plus tard comme dans l'exemple ci-dessous :
 
 \begin{figure}[H]
 	\center
@@ -364,9 +364,9 @@ On remarque que l'on obtient le même vecteur pour le vecteur erreur relative pu
 $$\varepsilon_{rel}=\left(\begin{array}{cccc}
 1.2314322895*10^{-9} & 7.046208061*10^{-10} & 5.017174454*10^{-10} & 3.9450942509*10^{-10} \end{array}\right)$$
 
-On observe des erreurs beaucoup plus élevées que celles obtenues localement. En effet pour une étude local on obtenait des erreurs d'ordre de grandeur d'environ $10^{-17}$ alors qu'ici il est d'environ $10^{-10}$. Une différence de $10^{7}$ qui n'est pas négligeable.\\
+On observe des erreurs beaucoup plus élevées que celles obtenues localement. En effet, pour une étude locale, on obtenait des erreurs d'ordre de grandeur d'environ $10^{-17}$ alors qu'ici il est d'environ $10^{-10}$. Une différence de $10^{7}$ qui n'est pas négligeable.\\
 
-Cependant, on peut souligner l'efficacité de la méthode car en seulement 4 itérations l'erreur de la solution obtenue par rapport à celle théorique est de seulement $10^{-9}$. Si l'on veut obtenir plus de précision il suffit de diminuer la tolérance et d'observer davantage d'étapes.
+Cependant, on peut souligner l'efficacité de la méthode car en seulement 4 itérations, l'erreur de la solution obtenue par rapport à celle théorique est de seulement $10^{-9}$. Si l'on veut obtenir plus de précision, il suffit de diminuer la tolérance et d'observer davantage d'étapes.
 
 
 
@@ -375,14 +375,13 @@ Cependant, on peut souligner l'efficacité de la méthode car en seulement 4 it�
 \chapter*{Conclusion} %thib
 \addcontentsline{toc}{chapter}{Conclusion}
 
-Pour conclure on a pu observer l'évolution de l'erreur absolue et de l'erreur relative sur deux éléments différents, le vecteur résidu et le vecteur x. On a constaté en général des résultats plutôt satisfaisants sur les deux éléments concernant la différence entre le résultat obtenue par machine et celui obtenue par un calcul manuel sensé servir de référence.\\
+Pour conclure, on a pu observer l'évolution de l'erreur absolue et de l'erreur relative sur deux éléments différents : le vecteur résidu et le vecteur x. On a constaté en général des résultats plutôt satisfaisants sur les deux éléments concernant la différence entre le résultat obtenu par machine et celui obtenu par un calcul manuel sensé servir de référence.\\
 
-Premièrement concernant le vecteur résidu. Tout d'abord on rappelle que le vecteur résidu a normalement tendance à diminuer en norme et il est même bien souvent important dans la condition d'arrêt. Nous avons remarqué une erreur absolue qui diminue, ce qui est logique car le vecteur diminue. Cependant au niveau de l'erreur relative on a observé une stagnation autour de $10^{-17}$ ce qui est très satisfaisant, la précision machine étant de $10^{-16}$ en double précision. On peut donc conclure que le calcul s'est plutôt bien passé.\\
+Premièrement, concernant le vecteur résidu. Tout d'abord on rappelle que le vecteur résidu a normalement tendance à diminuer en norme et il est même bien souvent important dans la condition d'arrêt. Nous avons remarqué une erreur absolue qui diminue, ce qui est logique car le vecteur converge. Cependant au niveau de l'erreur relative on a observé une stagnation autour de $10^{-17}$ ce qui est très satisfaisant, la précision machine étant de $10^{-16}$ en double précision. On peut donc conclure que le calcul s'est plutôt bien passé informatiquement.\\
 
-Deuxièmement par rapport au vecteur x. Vecteur qui tend vers la solution théorique du système le vecteur unitaire. On remarquera que la solution x final n'est pas exactement égale à la solution théorique mais c'est un autre sujet où le critère de tolérance a son importance. Nous concernant on comparera uniquement le résultat de la machine et le notre calculé de notre côté. On peut voir que l'erreur reste toujours inférieur à $10^{-16}$ ce qui est la précision machine en double précision et donc on en conclue que les résultats sont très satisfaisants. \\
+Deuxièmement, par rapport au vecteur x. Ce dernier tend vers la solution théorique du système linéaire : le vecteur unitaire. On remarquera que la solution x final n'est pas exactement égale à la solution théorique mais c'est un autre sujet où le critère de tolérance a son importance. Dans notre cas, nous avons seulement comparé le résultat de la machine et celui calculé de notre côté. On peut voir que l'erreur reste toujours inférieure à $10^{-16}$ ce qui est la précision machine en double précision. On en conclut que les résultats sont très satisfaisants. \\
 
-Pour finir on peut résumer en disant que le calcul s'est bien passé. Néanmoins rien ne nous garantie qu'avec une autre méthode où autre matrice on aurait eu la même chose. Il serait intéressant de mener la même étude avec d'autres matrices plus grande au conditionnement élevé et en variant les méthodes.
+Pour finir, on peut résumer en disant que l'ensemble des calculs se sont bien déroulés informatiquement sur l'ensemble des flottants. Néanmoins, rien ne nous garantit qu'avec une autre méthode ou une autre matrice on aurait obtenu la même chose. Il serait intéressant de mener la même étude avec d'autres matrices plus grandes au conditionnement élevé et en variant les méthodes.
 
-\chapter*{Annexe}
 
 \end{document}
