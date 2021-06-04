@@ -375,6 +375,14 @@ Cependant, on peut souligner l'efficacité de la méthode car en seulement 4 it�
 \chapter*{Conclusion} %thib
 \addcontentsline{toc}{chapter}{Conclusion}
 
+Pour conclure on a pu observer l'évolution de l'erreur absolue et de l'erreur relative sur deux éléments différents, le vecteur résidu et le vecteur x. On a constaté en général des résultats plutôt satisfaisants sur les deux éléments concernant la différence entre le résultat obtenue par machine et celui obtenue par un calcul manuel sensé servir de référence.\\
+
+Premièrement concernant le vecteur résidu. Tout d'abord on rappelle que le vecteur résidu a normalement tendance à diminuer en norme et il est même bien souvent important dans la condition d'arrêt. Nous avons remarqué une erreur absolue qui diminue, ce qui est logique car le vecteur diminue. Cependant au niveau de l'erreur relative on a observé une stagnation autour de $10^{-17}$ ce qui est très satisfaisant, la précision machine étant de $10^{-16}$ en double précision. On peut donc conclure que le calcul s'est plutôt bien passé.\\
+
+Deuxièmement par rapport au vecteur x. Vecteur qui tend vers la solution théorique du système le vecteur unitaire. On remarquera que la solution x final n'est pas exactement égale à la solution théorique mais c'est un autre sujet où le critère de tolérance a son importance. Nous concernant on comparera uniquement le résultat de la machine et le notre calculé de notre côté. On peut voir que l'erreur reste toujours inférieur à $10^{-16}$ ce qui est la précision machine en double précision et donc on en conclue que les résultats sont très satisfaisants. \\
+
+Pour finir on peut résumer en disant que le calcul s'est bien passé. Néanmoins rien ne nous garantie qu'avec une autre méthode où autre matrice on aurait eu la même chose. Il serait intéressant de mener la même étude avec d'autres matrices plus grande au conditionnement élevé et en variant les méthodes.
+
 \chapter*{Annexe}
 
 \end{document}
